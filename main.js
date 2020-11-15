@@ -20,6 +20,12 @@ const mod = {
 				// 'options.redirectUri = globalContext.cordova ? config.cordovaRedirectUri : String(Authorize.getLocation());': 'options.redirectUri = globalContext.cordova ? config.cordovaRedirectUri : String(config.OLSKPatchRemoteStorageAuthRedirectURI || Authorize.getLocation());',
 				'e.redirectUri=m.cordova?l.cordovaRedirectUri:String(h.getLocation())': 'e.redirectUri=m.cordova?l.cordovaRedirectUri:String(l.OLSKPatchRemoteStorageAuthRedirectURI || h.getLocation())',
 			},
+			'./node_modules/simplecrypto/src/simplecrypto.js': {
+				'var _crypto = window.crypto || window.msCrypto;': `var _crypto = window.crypto || window.msCrypto
+			    if (!_crypto) {
+			        return
+			    };`,
+			},
 		};
 	},
 
