@@ -20,6 +20,7 @@ const mod = {
 			'./node_modules/remotestoragejs/release/remotestorage.js': {
 				// 'options.redirectUri = globalContext.cordova ? config.cordovaRedirectUri : String(Authorize.getLocation());': 'options.redirectUri = globalContext.cordova ? config.cordovaRedirectUri : String(config.OLSKPatchRemoteStorageAuthRedirectURI || Authorize.getLocation());',
 				'e.redirectUri=m.cordova?l.cordovaRedirectUri:String(h.getLocation())': 'e.redirectUri=m.cordova?l.cordovaRedirectUri:String(l.OLSKPatchRemoteStorageAuthRedirectURI || h.getLocation())',
+				'r&&((t=u.getLocation()).hash': 'r.access_token&&((t=u.getLocation()).hash',
 			},
 			'./node_modules/simplecrypto/src/simplecrypto.js': {
 				'var _crypto = window.crypto || window.msCrypto;': `var _crypto = window.crypto || window.msCrypto
