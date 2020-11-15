@@ -10,6 +10,7 @@ const mod = {
 			},
 			'./node_modules/ulid/dist/index.esm.js': {
 				'var allowInsecure = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;': "var allowInsecure = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (typeof require === 'undefined' && typeof navigator !== 'undefined' && navigator.appName === 'Zombie');",
+				'console.error("secure crypto unusable, falling back to insecure Math.random()!");': '// console.error("secure crypto unusable, falling back to insecure Math.random()!")',
 				'export { replaceCharAt, incrementBase32, randomChar, encodeTime, encodeRandom, decodeTime, detectPrng, factory, monotonicFactory, ulid };':
 				'export { replaceCharAt, incrementBase32, randomChar, encodeTime, encodeRandom, decodeTime, detectPrng, factory, monotonicFactory };',
 			},
