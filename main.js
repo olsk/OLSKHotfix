@@ -13,6 +13,9 @@ const mod = {
 				'export { replaceCharAt, incrementBase32, randomChar, encodeTime, encodeRandom, decodeTime, detectPrng, factory, monotonicFactory, ulid };':
 				'export { replaceCharAt, incrementBase32, randomChar, encodeTime, encodeRandom, decodeTime, detectPrng, factory, monotonicFactory };',
 			},
+			'./node_modules/launchlet/__compiled/launchlet.js': {
+				',100': ',1',
+			},
 		};
 	},
 
