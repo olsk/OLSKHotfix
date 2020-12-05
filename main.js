@@ -3,6 +3,7 @@ const mod = {
 	OLSKHotfixPatches (environment) {
 		return Object.assign(Object.fromEntries(Object.entries({
 			'./node_modules/zombie/lib/document.js': {
+				'if (url == null)': 'return new URL.URL(...arguments); if  (url == null)',
 				'this.dispatchEvent(event);': `[this.dispatchEvent(event), !browser.emit('OLSKMessage', data) && browser.log('Unhandled message("%s")')];`,
 			},
 			'./node_modules/zombie/lib/pipeline.js': {
