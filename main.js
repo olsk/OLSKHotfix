@@ -5,6 +5,7 @@ const mod = {
 			'./node_modules/zombie/lib/document.js': {
 				'if (url == null)': 'return new URL.URL(...arguments); if  (url == null)',
 				'this.dispatchEvent(event);': `[this.dispatchEvent(event), !browser.emit('OLSKMessage', data) && browser.log('Unhandled message("%s")')];`,
+				'const request': `if (['player.vimeo.com', 'w.soundcloud.com'].filter(e => url.includes(e)).length) return document; const  request`
 			},
 			'./node_modules/zombie/lib/pipeline.js': {
 				'return consumeBody.then(function (body) {': 'return consumeBody.then(function (body)\n// (OLSKHotfixPatches\n{ if (body) request._OLSKRequestBody = body.toString();\n// OLSKHotfixPatches)',
