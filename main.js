@@ -31,7 +31,10 @@ const mod = {
 			},
 			'./node_modules/launchlet/__compiled/launchlet.js': {
 				',100': ',1',
-			},		
+			},
+			'./node_modules/codemirror/lib/codemirror.js': {
+				'return CodeMirror;': 'CodeMirror.posFromMouse = posFromMouse; return  CodeMirror;',
+			},
 		});
 	},
 
