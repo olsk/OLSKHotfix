@@ -8,6 +8,9 @@ const mod = {
 				'const request': `if (['player.vimeo.com', 'w.soundcloud.com'].filter(e => url.includes(e)).length) return document; const  request`,
 				'// Catch all errors': 'window.OLSKRequire = require; //  Catch all errors',
 			},
+			'./node_modules/zombie/lib/dom/forms.js': {
+				'if (button.getAttribute(\'disabled\')) return false;': `if (button.getAttribute('disabled') || (button.type === 'button')) return false;`,
+			},
 			'./node_modules/zombie/lib/pipeline.js': {
 				'return consumeBody.then(function (body) {': 'return consumeBody.then(function (body)\n// (OLSKHotfixPatches\n{ if (body) request._OLSKRequestBody = body.toString();\n// OLSKHotfixPatches)',
 			},
