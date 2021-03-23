@@ -7,6 +7,7 @@ const mod = {
 				'this.dispatchEvent(event);': `[this.dispatchEvent(event), !browser.emit('OLSKMessage', data) && browser.log('Unhandled message("%s")')];`,
 				'const request': `if (['player.vimeo.com', 'w.soundcloud.com'].filter(e => url.includes(e)).length) return document; const  request`,
 				'// Catch all errors': 'window.OLSKRequire = require; //  Catch all errors',
+				'let closed = false;': 'let closed = false ; window.customElements = { define: (function () {}) };',
 			},
 			'./node_modules/zombie/lib/dom/forms.js': {
 				'if (button.getAttribute(\'disabled\')) return false;': `if (button.getAttribute('disabled') || (button.type === 'button')) return false;`,
