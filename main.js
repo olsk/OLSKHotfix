@@ -40,6 +40,11 @@ const mod = {
 			'./node_modules/codemirror/lib/codemirror.js': {
 				'return CodeMirror;': 'CodeMirror.posFromMouse = posFromMouse; return  CodeMirror;',
 			},
+			'./node_modules/queue/index.js': {
+				"var EventEmitter = require('events').EventEmitter": "// var  EventEmitter = require('events').EventEmitter",
+				'EventEmitter.call(this)': "this.emit = function () {}; // EventEmitter.call( this)",
+				'inherits(Queue, EventEmitter)': "// inherits( Queue, EventEmitter)",
+			},
 		});
 	},
 
