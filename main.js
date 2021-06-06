@@ -45,9 +45,6 @@ const mod = {
 				'EventEmitter.call(this)': "this.emit = function () {}; // EventEmitter.call( this)",
 				'inherits(Queue, EventEmitter)': "// inherits( Queue, EventEmitter)",
 			},
-			'./node_modules/escape-string-regexp/package.json': {
-				'"exports": "./index.js"': '"exports": {"./index.js": "./index.js","./package.json": "./package.json"}',
-			},
 		});
 	},
 
