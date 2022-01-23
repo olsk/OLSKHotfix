@@ -12,6 +12,9 @@ const mod = {
 			'./node_modules/zombie/lib/dom/forms.js': {
 				'if (button.getAttribute(\'disabled\')) return false;': `if (button.getAttribute('disabled') || (button.type === 'button')) return false;`,
 			},
+			'./node_modules/zombie/lib/dom/jsdom_patches.js': {
+				'const url = URL.resolve(document.URL, href);': `const url = URL.resolve(document.URL, href) ;if (['unpkg.com'].filter(e => url.includes(e)).length) return;`,
+			},
 			'./node_modules/zombie/lib/pipeline.js': {
 				'return consumeBody.then(function (body) {': 'return consumeBody.then(function (body)\n// (OLSKHotfixPatches\n{ if (body) request._OLSKRequestBody = body.toString();\n// OLSKHotfixPatches)',
 			},
