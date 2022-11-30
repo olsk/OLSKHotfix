@@ -1,7 +1,7 @@
 const mod = {
 
-	OLSKHotfixPatches (environment) {
-		return Object.assign(Object.fromEntries(Object.entries({
+	OLSKHotfixPatches (environment, options = {}) {
+		return Object.assign(Object.fromEntries(Object.entries(Object.assign({
 			'./node_modules/zombie/lib/document.js': {
 				'if (url == null)': 'return new URL.URL(...arguments); if  (url == null)',
 				'this.dispatchEvent(event);': `[this.dispatchEvent(event), !browser.emit('OLSKMessage', data) && browser.log('Unhandled message("%s")')];`,
@@ -27,7 +27,7 @@ const mod = {
 			'./node_modules/simplecrypto/src/simplecrypto.js': {
 				'var _crypto = window.crypto || window.msCrypto;': 'var _crypto = window.crypto || window.msCrypto\nif (!_crypto) return;',
 			},
-		}).map(function ([path, patches]) {
+		}, options.OLSKHotfixPatchesReversible || {})).map(function ([path, patches]) {
 			return [path, Object.fromEntries(Object.entries(patches).map(function (e) {
 				return environment === 'production' ? e.reverse() : e;
 			}))];
@@ -48,7 +48,7 @@ const mod = {
 				'EventEmitter.call(this)': "this.emit = function () {}; // EventEmitter.call( this)",
 				'inherits(Queue, EventEmitter)': "// inherits( Queue, EventEmitter)",
 			},
-		});
+		}, options.OLSKHotfixPatchesNotReversible || {});
 	},
 
 };
