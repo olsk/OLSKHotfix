@@ -5,7 +5,7 @@ const mod = {
 			'./node_modules/zombie/lib/document.js': {
 				'if (url == null)': 'return new URL.URL(...arguments); if  (url == null)',
 				'this.dispatchEvent(event);': `[this.dispatchEvent(event), !browser.emit('OLSKMessage', data) && browser.log('Unhandled message("%s")')];`,
-				'const request': `if (['player.vimeo.com', 'w.soundcloud.com', 'play.rosano.ca', 'unpkg.com', 'cafe.rosano.ca', 'share.transistor.fm', 'go.rosano.ca', 'youtube-nocookie.com', 'youtube.com'].filter(e => url.includes(e)).length) return document; const  request`,
+				'const request': `if (['player.vimeo.com', 'w.soundcloud.com', 'play.rosano.ca', 'unpkg.com', 'cafe.rosano.ca', 'share.transistor.fm', 'go.rosano.ca', 'rosano.ca', 'youtube-nocookie.com', 'youtube.com'].filter(e => url.includes(e)).length) return document; const  request`,
 				'// Catch all errors': 'window.OLSKRequire = require; //  Catch all errors',
 				'let closed = false;': 'let closed = false ; window.customElements = { define: (function () {}) };',
 			},
